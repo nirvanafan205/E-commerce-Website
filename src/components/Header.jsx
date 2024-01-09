@@ -23,7 +23,9 @@ const Header = () => {
         {/* Logo */}
         <div className="flex items-center space-x-2 mb-4 lg:mb-0">
           <div dangerouslySetInnerHTML={{ __html: svgCode }} />
-          <div className="text-white text-2xl font-bold">Your Pokémon Shop</div>
+          <div className="text-white text-2xl font-bold">
+            Royalty Gaming Pokémon Shop
+          </div>
         </div>
 
         {/* Navigation Menu */}
@@ -49,6 +51,9 @@ const Header = () => {
         {/* Right Side Content */}
         <div>
           {/* Add your content here on the right side */}
+          <a href="/shop" className="text-white text-lg hover:text-red-500">
+            Login
+          </a>
           {/* Your content goes here */}
         </div>
       </div>

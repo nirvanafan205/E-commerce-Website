@@ -1,11 +1,13 @@
-import React from 'react';
-import Header from './components/Header'; // Update the import path to match your directory structure
+import React from "react";
+import Header from "./components/Header";
+import HeroSection from "./components/HeroSection";
 
 const LandingPage = () => {
   return (
     <div>
       <Header />
-      {/* The rest of your landing page content */}
+      <div className="h-1 bg-gradient-to-r from-black via-yellow-400 to-black"></div>
+      <HeroSection />
     </div>
   );
 };
