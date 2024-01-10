@@ -11,14 +11,14 @@ mongoose.connect("mongodb://127.0.0.1:27017/PokeShop");
 const Image = require("./models/image"); // Import the Image model
 
 // Create an API endpoint to get image data from the database
-app.get("/api/images", async (req, res) => {
+app.get("/api/random-images", async (req, res) => {
   try {
-    const images = await Image.find({}, "name data contentType"); // Fetch image data from the database
+    const images = await Image.aggregate([{ $sample: { size: 3 } }]); // Fetch three random images
 
     const imagesWithBase64 = images.map((image) => ({
       name: image.name,
       contentType: image.contentType,
-      data: image.data.toString("base64"), // Convert image data to base64
+      data: image.data.toString("base64"),
     }));
 
     res.json(imagesWithBase64);
