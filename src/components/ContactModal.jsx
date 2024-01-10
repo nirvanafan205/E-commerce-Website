@@ -19,10 +19,6 @@ const ContactModal = ({ closeModal }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your email sending logic here
-    // You can use subject and message state values to send the email
-    // Remember to handle errors and feedback to the user
-    // Close the modal after successful email submission
     closeModal();
   };
 
