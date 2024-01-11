@@ -5,8 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import { Auth0Provider } from "@auth0/auth0-react"; // Import Auth0Provider
 import LandingPage from "./pages/LandingPage";
 import LoginPage from "./pages/LoginPage";
-
-
+import ShopPage from "./pages/ShoppingPage";
 
 const App = () => {
   return (
@@ -19,6 +18,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/shop" element={<ShopPage />} />
         </Routes>
       </Router>
     </Auth0Provider>

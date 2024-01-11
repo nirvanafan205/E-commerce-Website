@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import ContactModal from "./ContactModal";
 
 const Header = () => {
   const navigate = useNavigate(); // Initialize useNavigate
+  const location = useLocation(); // Get the current location
 
   const svgCode = `
     <!-- Paste your SVG code here -->
@@ -26,6 +27,9 @@ const Header = () => {
     logout({ returnTo: window.location.origin }); // Redirect to home page after logout
     navigate("/"); // Use navigate function for navigation
   };
+  // Determine which links to hide based on the current route
+  const hideHomeLink = location.pathname === "/";
+  const hideShopLink = location.pathname === "/shop";
 
   return (
     <header className="bg-purple-950 py-4">
@@ -40,12 +44,16 @@ const Header = () => {
 
         {/* Navigation Menu */}
         <nav className="space-x-8">
-          <a href="/" className="text-white text-lg hover:text-red-500">
-            Home
-          </a>
-          <a href="/shop" className="text-white text-lg hover:text-red-500">
-            Shop
-          </a>
+          {!hideHomeLink && (
+            <a href="/" className="text-white text-lg hover:text-red-500">
+              Home
+            </a>
+          )}
+          {!hideShopLink && (
+            <a href="/shop" className="text-white text-lg hover:text-red-500">
+              Shop
+            </a>
+          )}
           <a href="/about" className="text-white text-lg hover:text-red-500">
             About Us
           </a>
@@ -55,11 +63,9 @@ const Header = () => {
           >
             Contact
           </button>
-
-          {/* Conditionally render "Login" or "Logout" based on authentication status */}
           {isAuthenticated ? (
             <button
-              onClick={handleLogout} // Use handleLogout function for logout
+              onClick={handleLogout}
               className="text-white text-lg hover:text-red-500 cursor-pointer"
             >
               Logout
