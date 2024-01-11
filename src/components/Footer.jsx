@@ -6,7 +6,8 @@ import {
   faDiscord,
   faEbay,
 } from "@fortawesome/free-brands-svg-icons";
-import BannerImage from "../images/Banner.jpg"; // Ensure this path is correct
+import { Icon } from "@iconify/react";
+import BannerImage from "../images/Banner.jpg";
 
 const Footer = () => {
   return (
@@ -53,6 +54,28 @@ const Footer = () => {
                 className="mx-2 text-cyan-300 hover:text-purple-500"
               >
                 <FontAwesomeIcon icon={faEbay} size="3x" />
+              </a>
+            </div>
+
+            <h2 className="text-4xl font-bold mb-4 text-center md:text-left text-pink-300 pt-12">
+              We accept
+            </h2>
+
+            <div className="flex justify-center md:justify-start">
+              <a className="mx-2 text-cyan-300 text-5xl">
+                <Icon icon="simple-icons:cashapp" />
+              </a>
+
+              <a className="mx-2 text-cyan-200 text-5xl">
+                <Icon icon="fa6-brands:cc-paypal" />
+              </a>
+              <a
+                href="https://discord.com/invite/qTH96J7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mx-2 text-cyan-300 text-5xl"
+              >
+                <Icon icon="ion:logo-venmo" />
               </a>
             </div>
           </div>

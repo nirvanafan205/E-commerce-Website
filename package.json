@@ -19,6 +19,7 @@
   "author": "Matthew Garcia",
   "license": "ISC",
   "devDependencies": {
+    "@iconify/react": "^4.1.1",
     "@vitejs/plugin-react": "^2.1.0",
     "autoprefixer": "10.4.16",
     "eslint": "8.24.0",
